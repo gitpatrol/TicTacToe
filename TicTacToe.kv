@@ -35,55 +35,66 @@
             text: "Play with AI"
             on_release: app.new_game(False)
 
-<PlayerChooser@Popup>:
+<PlayerChooser>:
     id: chooser
     size_hint: 0.55,0.25
     title: ""
     separator_height: 0
+    padding: 0
 
-    RelativeLayout:
-
+    BoxLayout:
+        orientation: "vertical"
         Label:
+            size_hint: 1, 0.1
+            pos_hint: {'top':0}
             text: "Choose Player"
-            pos_hint: {'top': 0}
 
-        Button:
-            size_hint: 0.48, 1
-            pos_hint: {'x':0,'y':0}
-            name: "X"
-            id:  x_btn
-            on_press: root.close("X")
-            background_normal: ''
-            background_color: 0,0.9,0.9,1
+        RelativeLayout:
+            size_hint: 1,0.9
 
             canvas:
                 Color:
-                    rgba: 1,1,1,1
-                Line:
-                    width: 5
-                    points: 20, self.height-20, self.width-20, 20
-                Line:
-                    width: 5
-                    points: self.width-20, self.height-20, 20, 20
+                    rgba: 1,0,0,1
+                Rectangle:
+                    size: self.size
+
+            Button:
+                size_hint: 0.48, 1
+                pos_hint: {'x':0,'y':0}
+                name: "X"
+                id:  x_btn
+                on_press: root.close("X")
+                background_normal: ''
+                background_color: 0,0.9,0.9,1
+
+                canvas:
+                    Color:
+                        rgba: 1,1,1,1
+                    Line:
+                        width: 5
+                        points: 20, self.height-20, self.width-20, 20
+                    Line:
+                        width: 5
+                        points: self.width-20, self.height-20, 20, 20
 
 
-        Button:
-            size_hint: 0.48, 1
-            pos_hint: {'right': 1}
-            id:  o_btn
-            name: "O"
-            on_press: root.close("O")
+            Button:
+                size_hint: 0.48, 1
+                pos_hint: {'right': 1}
+                id:  o_btn
+                name: "O"
+                on_press: root.close("O")
 
-            background_normal: ''
-            background_color: 0,0.9,0.9,1
+                background_normal: ''
+                background_color: 0,0.9,0.9,1
 
-            canvas:
-                Color:
-                    rgba: 1,1,1,1
-                Line:
-                    width: 5
-                    circle:
-                        (self.center_x,self.center_y, (self.x-20)*0.45)
+                canvas:
+                    Color:
+                        rgba: 1,1,1,1
+                    Line:
+                        width: 5
+                        circle:
+                            (self.center_x,self.center_y, (self.x-20)*0.45)
 
 <GridEntry>:
     size_hint: 1,1

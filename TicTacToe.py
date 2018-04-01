@@ -15,9 +15,6 @@ from kivy.event import*
 Window.size=(480,853)
 
 
-###TEST
-
-
 class GridEntry(RelativeLayout):
 
     coords = ListProperty([0, 0])
